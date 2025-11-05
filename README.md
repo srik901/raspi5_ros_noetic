@@ -23,6 +23,11 @@ Copy [ros_comm.patch](./ros_comm.patch) into ~/catkin_ws/src/ros_comm
 ```
 cd ~/catkin_ws/src/ros_comm
 git apply --ignore-whitespace ros_comm.patch
+
+cd ~/catkin_ws/src/perception_pcl/pcl_ros/include/pcl_ros
+
+# Replace BOOST_FOREACH with range-based for loop
+sed -i 's/BOOST_FOREACH(\(.*\), \(.*\))/for(\1 : \2)/g' point_cloud.h
 ```
 Now we're all set, start the build process.
 ```
