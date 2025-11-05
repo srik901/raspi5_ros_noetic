@@ -28,6 +28,11 @@ Now we're all set, start the build process.
 ```
 cd ~/catkin_ws
 ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release
+./src/catkin/bin/catkin_make_isolated --install \
+  -DCMAKE_BUILD_TYPE=Release \
+  -DCMAKE_C_FLAGS="-march=armv8.2-a+crypto+fp16 -mtune=cortex-a76 -O2" \
+  -DCMAKE_CXX_FLAGS="-march=armv8.2-a+crypto+fp16 -mtune=cortex-a76 -O2" \
+  -j4
 ```
 Once the building is done
 ```
